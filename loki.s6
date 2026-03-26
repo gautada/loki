@@ -1,0 +1,17 @@
+#!/bin/sh
+#/usr/bin/execlineb -P
+
+# Import environment variables
+with-contenv
+
+# Ensure Loki data directories exist
+foreground { mkdir -p /loki/chunks /loki/index /loki/index_cache /loki/compactor }
+
+# Drop privileges (optional but recommended)
+s6-setuidgid loki
+
+# Exec Loki
+exec /usr/bin/loki \
+  -config.file /etc/loki/loki.yaml \
+  -log.level info
+
