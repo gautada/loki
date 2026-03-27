@@ -16,7 +16,6 @@ RUN git config --global advice.detachedHead false \
  && VERSION="${LOKI_VERSION#v}" && \
     BRANCH="$(git rev-parse --abbrev-ref HEAD)" && \
     REVISION="$(git rev-parse HEAD)" && \
-    BUILD_USER="root@$(hostname)" && \
     BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)" && \
     LDFLAGS="-s -w \
       -X github.com/grafana/loki/pkg/util/build.Version=${VERSION} \

@@ -5,7 +5,7 @@
 with-contenv
 
 # Ensure Loki data directories exist
-foreground { mkdir -p /loki/chunks /loki/index /loki/index_cache /loki/compactor }
+mkdir -p /loki/chunks /loki/index /loki/index_cache /loki/compactor
 
 # Drop privileges (optional but recommended)
 s6-setuidgid loki
